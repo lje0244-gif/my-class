@@ -1,1 +1,535 @@
-# my-class
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심청이들의 일상 - 입면초 4학년 웹툰</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #FFF9F0; color: #2d2d2d; overflow-x: hidden; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, #FFE8CC 0%, #FFDDE8 50%, #D4EEFF 100%);
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 180px; height: 180px;
+    background: #FFD166;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -30px;
+    width: 220px; height: 220px;
+    background: #A0D8EF;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: #FF6B9D;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 span { color: #FF6B9D; }
+  .hero .sub {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Train illustration */
+  .train-scene {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 2rem;
+    max-width: 560px;
+  }
+  .train-scene svg { width: 100%; height: auto; }
+
+  /* Characters */
+  .chars-section {
+    padding: 2.5rem 1.5rem;
+    background: white;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin-bottom: 0.3rem;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1.8rem;
+  }
+  .chars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .char-card {
+    background: #FFF9F0;
+    border-radius: 18px;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+  .char-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .char-card .read-btn {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: #1a1a2e;
+    color: white;
+  }
+  .char-card.boy1 { border-color: #A0D8EF; }
+  .char-card.boy2 { border-color: #95E1A4; }
+  .char-card.boy3 { border-color: #FFD166; }
+  .char-card.boy4 { border-color: #FF9A6C; }
+  .char-card.girl1 { border-color: #FF6B9D; }
+  .char-card.girl2 { border-color: #C9A0DC; }
+  .char-avatar {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 0.7rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .char-name { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+  .char-role { font-size: 0.75rem; color: #888; }
+  .char-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+    margin-top: 6px;
+    font-weight: 700;
+  }
+
+  /* Episodes */
+  .episodes-section {
+    padding: 2.5rem 1.5rem;
+    background: #FFF9F0;
+  }
+  .episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .ep-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .ep-card:hover { transform: translateY(-3px); }
+  .ep-thumb {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+  }
+  .ep-num {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: rgba(0,0,0,0.45);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 99px;
+  }
+  .ep-info { padding: 0.8rem; }
+  .ep-title { font-size: 0.9rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+  .ep-desc { font-size: 0.75rem; color: #888; line-height: 1.4; }
+
+  /* Gokseong section */
+  .gokseong-section {
+    padding: 2.5rem 1.5rem;
+    background: white;
+    text-align: center;
+  }
+  .gokseong-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 560px;
+    margin: 1.5rem auto 0;
+  }
+  .place-card {
+    border-radius: 16px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .place-card.train-card { background: #E8F4FD; border: 2px solid #A0D8EF; }
+  .place-card.sim-card { background: #FDE8F4; border: 2px solid #FF6B9D; }
+  .place-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .place-name { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 0.3rem; }
+  .place-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, #FF6B9D, #C9A0DC);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: white;
+  }
+  .cta-section h2 { font-size: 1.4rem; font-weight: 900; margin-bottom: 0.5rem; }
+  .cta-section p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 1.5rem; }
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: #FF6B9D;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: 99px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  }
+
+  /* Bubbles deco */
+  .bubble {
+    display: inline-block;
+    background: white;
+    border: 2.5px solid #FFD166;
+    border-radius: 18px 18px 18px 4px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 4px 3px;
+  }
+  .bubble.pink { border-color: #FF6B9D; }
+  .bubble.blue { border-color: #A0D8EF; }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+    color: #aaa;
+    background: #FFF9F0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">✨ 곡성 입면초등학교 4학년</div>
+  <h1>현대판 <span>심청이들의</span><br>일상 웹툰!</h1>
+  <p class="sub">6명의 어린이 작가가 그려내는 웃음과 감동 이야기 🎨</p>
+
+  <div class="train-scene">
+    <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sky -->
+      <rect x="0" y="0" width="560" height="200" fill="#D4EEFF" rx="20"/>
+      <!-- Mountains -->
+      <polygon points="0,140 80,60 160,140" fill="#8FC9A4"/>
+      <polygon points="60,140 150,50 240,140" fill="#A8D8B0"/>
+      <polygon points="320,140 420,45 520,140" fill="#8FC9A4"/>
+      <polygon points="380,140 480,55 560,140" fill="#A8D8B0"/>
+      <!-- River Seomjin -->
+      <ellipse cx="280" cy="165" rx="180" ry="22" fill="#A0D8EF" opacity="0.7"/>
+      <ellipse cx="280" cy="168" rx="140" ry="14" fill="#7EC8E3" opacity="0.6"/>
+      <!-- Ground -->
+      <rect x="0" y="150" width="560" height="50" fill="#B8E0A0" rx="0"/>
+      <!-- Train track -->
+      <rect x="0" y="150" width="560" height="6" fill="#8B7355"/>
+      <rect x="30" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="70" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="110" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="150" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="190" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="230" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="270" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="310" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="350" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="390" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="430" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="470" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <rect x="510" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
+      <!-- Train engine -->
+      <rect x="50" y="108" width="90" height="40" fill="#FF6B9D" rx="8"/>
+      <rect x="58" y="100" width="60" height="18" fill="#FF8FB0" rx="6"/>
+      <!-- Chimney smoke -->
+      <circle cx="68" cy="92" r="7" fill="white" opacity="0.8"/>
+      <circle cx="76" cy="84" r="8" fill="white" opacity="0.6"/>
+      <circle cx="87" cy="78" r="9" fill="white" opacity="0.4"/>
+      <!-- Engine wheels -->
+      <circle cx="72" cy="148" r="11" fill="#C9A0DC" stroke="white" stroke-width="2"/>
+      <circle cx="72" cy="148" r="5" fill="white"/>
+      <circle cx="108" cy="148" r="11" fill="#C9A0DC" stroke="white" stroke-width="2"/>
+      <circle cx="108" cy="148" r="5" fill="white"/>
+      <!-- Train car 1 -->
+      <rect x="148" y="112" width="80" height="36" fill="#FFD166" rx="8"/>
+      <!-- Car windows with kids -->
+      <rect x="157" y="118" width="24" height="18" fill="white" rx="4"/>
+      <text x="169" y="131" text-anchor="middle" font-size="12">😄</text>
+      <rect x="187" y="118" width="24" height="18" fill="white" rx="4"/>
+      <text x="199" y="131" text-anchor="middle" font-size="12">🎀</text>
+      <circle cx="165" cy="148" r="10" fill="#FF9A6C" stroke="white" stroke-width="2"/>
+      <circle cx="165" cy="148" r="4" fill="white"/>
+      <circle cx="200" cy="148" r="10" fill="#FF9A6C" stroke="white" stroke-width="2"/>
+      <circle cx="200" cy="148" r="4" fill="white"/>
+      <!-- Train car 2 -->
+      <rect x="236" y="112" width="80" height="36" fill="#95E1A4" rx="8"/>
+      <rect x="245" y="118" width="24" height="18" fill="white" rx="4"/>
+      <text x="257" y="131" text-anchor="middle" font-size="12">😎</text>
+      <rect x="275" y="118" width="24" height="18" fill="white" rx="4"/>
+      <text x="287" y="131" text-anchor="middle" font-size="12">🌸</text>
+      <circle cx="253" cy="148" r="10" fill="#8FC9A4" stroke="white" stroke-width="2"/>
+      <circle cx="253" cy="148" r="4" fill="white"/>
+      <circle cx="288" cy="148" r="10" fill="#8FC9A4" stroke="white" stroke-width="2"/>
+      <circle cx="288" cy="148" r="4" fill="white"/>
+      <!-- Station sign -->
+      <rect x="410" y="90" width="100" height="30" fill="white" rx="6" stroke="#A0D8EF" stroke-width="2"/>
+      <text x="460" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#1a6e8e">섬진강 기차마을</text>
+      <rect x="455" y="120" width="10" height="30" fill="#888"/>
+      <!-- Lotus flowers -->
+      <text x="340" y="180" font-size="20">🌸</text>
+      <text x="370" y="185" font-size="16">🌸</text>
+      <text x="390" y="178" font-size="18">🌺</text>
+    </svg>
+  </div>
+
+  <div>
+    <span class="bubble">🚂 섬진강 기차마을</span>
+    <span class="bubble pink">🌸 심청이 전설</span>
+    <span class="bubble blue">✏️ 4학년 6인방</span>
+  </div>
+</section>
+
+<!-- Characters -->
+<section class="chars-section">
+  <h2 class="section-title">🦸 우리가 바로 현대판 심청이!</h2>
+  <p class="section-sub">곡성 입면초 4학년 6명이 심청이 캐릭터로 변신했어요</p>
+  <div class="chars-grid">
+    <a class="char-card boy1" href="#webtoon-은범" onclick="alert('송은범 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#E8F4FD;">🧒</div>
+      <div class="char-name">1. 송은범</div>
+      <div class="char-role">리더 심청</div>
+      <span class="char-tag" style="background:#E8F4FD;color:#1a6e8e;">용감한 대장</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card girl1" href="#webtoon-하랑" onclick="alert('송하랑 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FDE8F0;">👧</div>
+      <div class="char-name">2. 송하랑</div>
+      <div class="char-role">감성 심청</div>
+      <span class="char-tag" style="background:#FDE8F0;color:#8a1a4e;">따뜻한 마음</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy2" href="#webtoon-시원" onclick="alert('이시원 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#E8F8EC;">🧒</div>
+      <div class="char-name">3. 이시원</div>
+      <div class="char-role">발명가 심청</div>
+      <span class="char-tag" style="background:#E8F8EC;color:#1a6e45;">아이디어왕</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card girl2" href="#webtoon-나경" onclick="alert('임나경 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#F0E8FD;">👧</div>
+      <div class="char-name">4. 임나경</div>
+      <div class="char-role">책벌레 심청</div>
+      <span class="char-tag" style="background:#F0E8FD;color:#5a1a8a;">도서관 단골</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy3" href="#webtoon-희성" onclick="alert('최희성 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FFF8E1;">🤓</div>
+      <div class="char-name">5. 최희성</div>
+      <div class="char-role">안경 심청</div>
+      <span class="char-tag" style="background:#FFF8E1;color:#8a6000;">지혜로운 뇌</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy4" href="#webtoon-민혁" onclick="alert('황민혁 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FFF0E8;">🧒</div>
+      <div class="char-name">6. 황민혁</div>
+      <div class="char-role">운동왕 심청</div>
+      <span class="char-tag" style="background:#FFF0E8;color:#8a3a00;">달리기 1등</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+  </div>
+</section>
+
+<!-- Episodes -->
+<section class="episodes-section">
+  <h2 class="section-title">📖 웹툰 에피소드</h2>
+  <p class="section-sub">6명의 일상 속 좌충우돌 이야기!</p>
+  <div class="episodes-grid">
+    <div class="ep-card">
+      <div class="ep-thumb" style="background:#FFE8F0;">
+        <span class="ep-num">1화</span>
+        🌸🎒
+      </div>
+      <div class="ep-info">
+        <div class="ep-title">우리가 심청이?!</div>
+        <div class="ep-desc">어느 날 아침, 6명이 심청이로 변해버렸다!</div>
+      </div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-thumb" style="background:#E8F4FD;">
+        <span class="ep-num">2화</span>
+        🚂🌊
+      </div>
+      <div class="ep-info">
+        <div class="ep-title">섬진강 기차 모험</div>
+        <div class="ep-desc">기차마을에서 벌어진 대소동!</div>
+      </div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-thumb" style="background:#E8F8EC;">
+        <span class="ep-num">3화</span>
+        🍱😋
+      </div>
+      <div class="ep-info">
+        <div class="ep-title">급식 대작전</div>
+        <div class="ep-desc">시우의 요리 실력으로 급식 메뉴 바꾸기!</div>
+      </div>
+    </div>
+    <div class="ep-card">
+      <div class="ep-thumb" style="background:#FFF8E1;">
+        <span class="ep-num">4화</span>
+        🎨✏️
+      </div>
+      <div class="ep-info">
+        <div class="ep-title">미술 대회 소동</div>
+        <div class="ep-desc">지아의 그림이 심청이 전설을 담다!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gokseong section -->
+<section class="gokseong-section">
+  <h2 class="section-title">🗺️ 우리의 고향, 곡성!</h2>
+  <p class="section-sub">이야기의 배경이 되는 곡성의 명소들이에요</p>
+  <div class="gokseong-grid">
+    <div class="place-card train-card">
+      <div class="place-icon">🚂</div>
+      <div class="place-name">섬진강 기차마을</div>
+      <div class="place-desc">옛날 기차를 타고 섬진강 변을 달려요. 우리 웹툰의 주 무대!</div>
+    </div>
+    <div class="place-card sim-card">
+      <div class="place-icon">🌸</div>
+      <div class="place-name">심청이 전설</div>
+      <div class="place-desc">곡성에 내려오는 효녀 심청이 이야기. 우리가 현대판 심청이!</div>
+    </div>
+  </div>
+
+  <!-- Simcheong illustration -->
+  <div style="max-width:480px;margin:1.8rem auto 0;">
+    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+      <!-- Lotus pond background -->
+      <rect x="0" y="80" width="480" height="80" fill="#C8E6F5" rx="12"/>
+      <ellipse cx="240" cy="90" rx="220" ry="25" fill="#A0D8EF" opacity="0.7"/>
+      <!-- Lotus flowers -->
+      <ellipse cx="80" cy="92" rx="28" ry="10" fill="#95E1A4"/>
+      <ellipse cx="80" cy="88" rx="18" ry="8" fill="#FF9AB2"/>
+      <ellipse cx="80" cy="85" rx="10" ry="7" fill="#FFB3C6"/>
+      <text x="80" y="88" text-anchor="middle" font-size="18">🌸</text>
+      <ellipse cx="240" cy="92" rx="28" ry="10" fill="#95E1A4"/>
+      <text x="240" y="89" text-anchor="middle" font-size="18">🌸</text>
+      <ellipse cx="400" cy="92" rx="28" ry="10" fill="#95E1A4"/>
+      <text x="400" y="89" text-anchor="middle" font-size="18">🌸</text>
+
+      <!-- Modern Simcheong kids (6 kids row) -->
+      <!-- Boy 1 - blue -->
+      <circle cx="80" cy="55" r="18" fill="#A0D8EF" stroke="white" stroke-width="2"/>
+      <text x="80" y="62" text-anchor="middle" font-size="20">🧒</text>
+      <!-- speech bubble -->
+      <rect x="96" y="28" width="60" height="22" fill="white" rx="8" stroke="#A0D8EF" stroke-width="1.5"/>
+      <text x="126" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#1a6e8e">나는 심청!</text>
+      <polygon points="100,50 108,50 104,57" fill="white" stroke="#A0D8EF" stroke-width="1.5"/>
+
+      <!-- Boy 2 - green -->
+      <circle cx="145" cy="55" r="18" fill="#95E1A4" stroke="white" stroke-width="2"/>
+      <text x="145" y="62" text-anchor="middle" font-size="20">🧒</text>
+
+      <!-- Boy 3 - yellow -->
+      <circle cx="210" cy="55" r="18" fill="#FFD166" stroke="white" stroke-width="2"/>
+      <text x="210" y="62" text-anchor="middle" font-size="20">🧒</text>
+
+      <!-- Boy 4 - orange -->
+      <circle cx="275" cy="55" r="18" fill="#FF9A6C" stroke="white" stroke-width="2"/>
+      <text x="275" y="62" text-anchor="middle" font-size="20">🧒</text>
+
+      <!-- Girl 1 - pink -->
+      <circle cx="340" cy="55" r="18" fill="#FF6B9D" stroke="white" stroke-width="2"/>
+      <text x="340" y="62" text-anchor="middle" font-size="20">👧</text>
+
+      <!-- Girl 2 - purple -->
+      <circle cx="405" cy="55" r="18" fill="#C9A0DC" stroke="white" stroke-width="2"/>
+      <text x="405" y="62" text-anchor="middle" font-size="20">👧</text>
+      <!-- Girl2 speech bubble -->
+      <rect x="348" y="10" width="80" height="22" fill="white" rx="8" stroke="#C9A0DC" stroke-width="1.5"/>
+      <text x="388" y="25" text-anchor="middle" font-size="10" font-weight="700" fill="#5a1a8a">우리가 6 심청!</text>
+      <polygon points="400,32 408,32 404,40" fill="white" stroke="#C9A0DC" stroke-width="1.5"/>
+
+      <!-- Stars -->
+      <text x="30" y="40" font-size="14">⭐</text>
+      <text x="450" y="35" font-size="14">⭐</text>
+      <text x="165" y="20" font-size="12">✨</text>
+      <text x="290" y="18" font-size="12">✨</text>
+    </svg>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>🎉 다음 화가 궁금하다면?</h2>
+  <p>6 심청이의 다음 모험을 함께 응원해 주세요!<br>직접 웹툰을 그려서 참여할 수도 있어요 ✏️</p>
+  <a href="#" class="cta-btn">📬 참여하기</a>
+</section>
+
+<footer>
+  © 2024 곡성 입면초등학교 4학년 웹툰 프로젝트 🌸 | 함께 그리는 우리들의 이야기
+</footer>
+
+</body>
+</html>
