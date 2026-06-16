@@ -103,10 +103,23 @@
     padding: 1.2rem 0.8rem;
     text-align: center;
     border: 2px solid transparent;
-    transition: transform 0.2s, border-color 0.2s;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
   }
-  .char-card:hover { transform: translateY(-4px); }
+  .char-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .char-card .read-btn {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: #1a1a2e;
+    color: white;
+  }
   .char-card.boy1 { border-color: #A0D8EF; }
   .char-card.boy2 { border-color: #95E1A4; }
   .char-card.boy3 { border-color: #FFD166; }
@@ -339,42 +352,48 @@
   <h2 class="section-title">🦸 우리가 바로 현대판 심청이!</h2>
   <p class="section-sub">곡성 입면초 4학년 6명이 심청이 캐릭터로 변신했어요</p>
   <div class="chars-grid">
-    <div class="char-card boy1">
+    <a class="char-card boy1" href="#webtoon-은범" onclick="alert('송은범 웹툰 링크를 연결해 주세요!')">
       <div class="char-avatar" style="background:#E8F4FD;">🧒</div>
-      <div class="char-name">도현</div>
+      <div class="char-name">1. 송은범</div>
       <div class="char-role">리더 심청</div>
       <span class="char-tag" style="background:#E8F4FD;color:#1a6e8e;">용감한 대장</span>
-    </div>
-    <div class="char-card boy2">
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card girl1" href="#webtoon-하랑" onclick="alert('송하랑 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FDE8F0;">👧</div>
+      <div class="char-name">2. 송하랑</div>
+      <div class="char-role">감성 심청</div>
+      <span class="char-tag" style="background:#FDE8F0;color:#8a1a4e;">따뜻한 마음</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy2" href="#webtoon-시원" onclick="alert('이시원 웹툰 링크를 연결해 주세요!')">
       <div class="char-avatar" style="background:#E8F8EC;">🧒</div>
-      <div class="char-name">준서</div>
+      <div class="char-name">3. 이시원</div>
       <div class="char-role">발명가 심청</div>
       <span class="char-tag" style="background:#E8F8EC;color:#1a6e45;">아이디어왕</span>
-    </div>
-    <div class="char-card boy3">
-      <div class="char-avatar" style="background:#FFF8E1;">🧒</div>
-      <div class="char-name">시우</div>
-      <div class="char-role">요리사 심청</div>
-      <span class="char-tag" style="background:#FFF8E1;color:#8a6000;">먹보 심청</span>
-    </div>
-    <div class="char-card boy4">
-      <div class="char-avatar" style="background:#FFF0E8;">🧒</div>
-      <div class="char-name">민준</div>
-      <div class="char-role">운동왕 심청</div>
-      <span class="char-tag" style="background:#FFF0E8;color:#8a3a00;">달리기 1등</span>
-    </div>
-    <div class="char-card girl1">
-      <div class="char-avatar" style="background:#FDE8F0;">👧</div>
-      <div class="char-name">지아</div>
-      <div class="char-role">그림쟁이 심청</div>
-      <span class="char-tag" style="background:#FDE8F0;color:#8a1a4e;">예술 심청</span>
-    </div>
-    <div class="char-card girl2">
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card girl2" href="#webtoon-나경" onclick="alert('임나경 웹툰 링크를 연결해 주세요!')">
       <div class="char-avatar" style="background:#F0E8FD;">👧</div>
-      <div class="char-name">하은</div>
+      <div class="char-name">4. 임나경</div>
       <div class="char-role">책벌레 심청</div>
       <span class="char-tag" style="background:#F0E8FD;color:#5a1a8a;">도서관 단골</span>
-    </div>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy3" href="#webtoon-희성" onclick="alert('최희성 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FFF8E1;">🤓</div>
+      <div class="char-name">5. 최희성</div>
+      <div class="char-role">안경 심청</div>
+      <span class="char-tag" style="background:#FFF8E1;color:#8a6000;">지혜로운 뇌</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
+    <a class="char-card boy4" href="#webtoon-민혁" onclick="alert('황민혁 웹툰 링크를 연결해 주세요!')">
+      <div class="char-avatar" style="background:#FFF0E8;">🧒</div>
+      <div class="char-name">6. 황민혁</div>
+      <div class="char-role">운동왕 심청</div>
+      <span class="char-tag" style="background:#FFF0E8;color:#8a3a00;">달리기 1등</span>
+      <div class="read-btn">📖 웹툰 보기</div>
+    </a>
   </div>
 </section>
 
