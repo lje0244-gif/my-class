@@ -77,10 +77,17 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
 
 .reader-body{flex:1;overflow-y:auto;padding:0;background:#222}
 .webtoon-strip{max-width:480px;margin:0 auto;padding:0}
-.webtoon-strip img{width:100%;display:block}
-.webtoon-strip .panel-placeholder{width:100%;background:#2a2a3e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#555;gap:8px;padding:3rem 1rem;border-bottom:3px solid #111}
+.webtoon-strip img{width:100%;display:block;margin-bottom:18px;border-radius:6px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.webtoon-strip .panel-placeholder{width:100%;background:#2a2a3e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#555;gap:8px;padding:3rem 1rem;margin-bottom:18px;border-radius:6px}
 .webtoon-strip .panel-placeholder .pnum{font-size:2rem;color:#444}
 .webtoon-strip .panel-placeholder p{font-size:.8rem;text-align:center;line-height:1.6}
+
+/* 순서 미리보기 */
+.preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;max-height:220px;overflow-y:auto}
+.preview-thumb{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/4;background:#333}
+.preview-thumb img{width:100%;height:100%;object-fit:cover}
+.preview-thumb .num{position:absolute;top:3px;left:3px;background:rgba(0,0,0,.75);color:white;font-size:.65rem;font-weight:700;padding:1px 5px;border-radius:4px}
+.reorder-hint{font-size:.75rem;color:#888;margin-top:4px;text-align:center}
 
 .reader-footer{background:#1a1a2e;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;border-top:2px solid #333}
 .vol-label{color:#aaa;font-size:.75rem}
@@ -224,6 +231,8 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
       <div class="upload-progress-bar"><div class="upload-progress-fill" id="progressFill"></div></div>
       <div class="upload-progress-text" id="progressText">처리 중...</div>
     </div>
+    <div id="previewGrid" class="preview-grid" style="display:none"></div>
+    <div class="reorder-hint" id="reorderHint" style="display:none">📋 순서가 다르면 파일명을 01, 02, 03… 으로 바꾼 뒤 다시 선택해 주세요</div>
     <div class="upload-actions">
       <button class="upload-cancel" onclick="closeUpload()">취소</button>
       <button class="upload-confirm" id="confirmBtn" onclick="applyImages()">✅ 웹툰에 적용!</button>
@@ -304,6 +313,9 @@ function openUpload() {
 
 function closeUpload() {
   document.getElementById('uploadPanel').classList.remove('open');
+  document.getElementById('previewGrid').style.display = 'none';
+  document.getElementById('previewGrid').innerHTML = '';
+  document.getElementById('reorderHint').style.display = 'none';
 }
 
 function handleFiles(files) {
@@ -331,9 +343,26 @@ function handleFiles(files) {
       document.getElementById('progressFill').style.width = pct + '%';
       document.getElementById('progressText').textContent = done + ' / ' + total + '장 처리 중...';
       if (done === total) {
-        document.getElementById('progressText').textContent = '✅ ' + total + '장 준비 완료! 아래 버튼을 눌러주세요.';
+        document.getElementById('progressText').textContent = '✅ ' + total + '장 준비 완료! 순서를 확인해 주세요.';
         document.getElementById('fileCount').textContent = '📂 ' + total + '장 선택됨';
         document.getElementById('confirmBtn').style.display = 'inline-block';
+        // 미리보기 그리드
+        var grid = document.getElementById('previewGrid');
+        grid.innerHTML = '';
+        grid.style.display = 'grid';
+        document.getElementById('reorderHint').style.display = 'block';
+        uploadedImages.forEach(function(src, idx) {
+          var div = document.createElement('div');
+          div.className = 'preview-thumb';
+          var img = document.createElement('img');
+          img.src = src;
+          var num = document.createElement('div');
+          num.className = 'num';
+          num.textContent = (idx + 1) + '번';
+          div.appendChild(img);
+          div.appendChild(num);
+          grid.appendChild(div);
+        });
       }
     };
     fr.readAsDataURL(file);
