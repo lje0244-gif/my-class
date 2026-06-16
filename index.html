@@ -219,7 +219,16 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
 <div class="upload-panel" id="uploadPanel">
   <div class="upload-box">
     <h3>🖼️ 웹툰 이미지 올리기</h3>
-    <p id="uploadDesc">컴퓨터에서 이미지를 선택하면<br>바로 웹툰에 표시돼요!</p>
+    <p id="uploadDesc">이미지를 올릴 학생을 선택하고<br>컴퓨터에서 이미지를 선택해 주세요!</p>
+    <select id="studentSelect" style="width:100%;padding:10px;border-radius:10px;border:2px solid #FF6B9D;background:#2a2a3e;color:white;font-size:.9rem;font-weight:700;margin-bottom:12px;cursor:pointer">
+      <option value="">👇 학생 선택</option>
+      <option value="송은범">1. 송은범</option>
+      <option value="송하랑">2. 송하랑</option>
+      <option value="이시원">3. 이시원</option>
+      <option value="임나경">4. 임나경</option>
+      <option value="최희성">5. 최희성</option>
+      <option value="황민혁">6. 황민혁</option>
+    </select>
     <div class="upload-drop" onclick="document.getElementById('fileInput').click()">
       <div class="upload-drop-icon">📁</div>
       <p>클릭해서 이미지 선택</p>
@@ -307,7 +316,12 @@ function openUpload() {
   document.getElementById('uploadProgress').style.display = 'none';
   document.getElementById('confirmBtn').style.display = 'none';
   document.getElementById('progressFill').style.width = '0';
-  document.getElementById('uploadDesc').innerHTML = '<b style="color:#FF6B9D">' + currentUploadTarget + '</b> 웹툰 이미지를<br>컴퓨터에서 선택해 주세요!';
+  document.getElementById('previewGrid').style.display = 'none';
+  document.getElementById('previewGrid').innerHTML = '';
+  document.getElementById('reorderHint').style.display = 'none';
+  // 드롭다운을 현재 열린 학생으로 미리 선택
+  var sel = document.getElementById('studentSelect');
+  sel.value = currentReaderName || '';
   document.getElementById('uploadPanel').classList.add('open');
 }
 
@@ -370,21 +384,26 @@ function handleFiles(files) {
 }
 
 function applyImages() {
+  // 학생 선택 드롭다운 우선, 없으면 currentUploadTarget 사용
+  var sel = document.getElementById('studentSelect').value;
+  var target = sel || currentUploadTarget;
+
   var imgs = uploadedImages.filter(function(x) { return !!x; });
-  if (imgs.length === 0) {
-    alert('이미지를 먼저 선택해 주세요!');
-    return;
-  }
-  if (!currentUploadTarget) {
-    alert('웹툰을 먼저 열어주세요!');
-    return;
-  }
-  WEBTOONS[currentUploadTarget].pages = imgs;
+  if (imgs.length === 0) { alert('이미지를 먼저 선택해 주세요!'); return; }
+  if (!target) { alert('학생을 먼저 선택해 주세요!'); return; }
+
+  WEBTOONS[target].pages = imgs;
   closeUpload();
-  var data = WEBTOONS[currentUploadTarget];
-  buildStrip(data.pages, data.color);
-  document.getElementById('readerBody').scrollTop = 0;
-  document.getElementById('progressText').textContent = '';
+
+  // 리더가 열려 있으면 해당 학생 웹툰으로 업데이트
+  var reader = document.getElementById('reader');
+  if (reader.classList.contains('open') && currentReaderName === target) {
+    buildStrip(WEBTOONS[target].pages, WEBTOONS[target].color);
+    document.getElementById('readerBody').scrollTop = 0;
+  } else {
+    // 리더가 닫혀 있으면 자동으로 열어줌
+    openReader(target);
+  }
 }
 
 var currentReaderName = '';
