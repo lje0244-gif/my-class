@@ -2,8 +2,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR',sans-serif;background:#FFF9F0;color:#2d2d2d;overflow-x:hidden}
-
-/* ── LANDING ── */
 #landing{transition:opacity .4s}
 .hero{background:linear-gradient(160deg,#FFE8CC,#FFDDE8 50%,#D4EEFF);padding:3rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40px;left:-40px;width:180px;height:180px;background:#FFD166;border-radius:50%;opacity:.3}
@@ -44,59 +42,49 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FFF9F0;color:#2d2d2d;over
 .cta-btn{display:inline-block;background:white;color:#FF6B9D;font-weight:700;font-size:1rem;padding:.9rem 2.5rem;border-radius:99px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.15)}
 footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#FFF9F0}
 
-/* ── WEBTOON READER ── */
+/* READER */
 #reader{display:none;position:fixed;inset:0;z-index:2000;flex-direction:column;background:#111}
 #reader.open{display:flex}
-
 .reader-header{background:#1a1a2e;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;border-bottom:2px solid #FF6B9D}
 .reader-back{background:#FF6B9D;border:none;color:white;font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:99px;cursor:pointer}
 .reader-title{flex:1;color:white;font-weight:900;font-size:1rem;text-align:center}
 .music-btn{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:white;font-size:.8rem;padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap}
 .music-btn.playing{background:#FF6B9D;border-color:#FF6B9D}
 .upload-btn{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:white;font-size:.8rem;padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap}
-
-/* Upload Panel */
-.upload-panel{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.9);align-items:center;justify-content:center}
-.upload-panel.open{display:flex}
-.upload-box{background:#1a1a2e;border-radius:20px;width:90vw;max-width:420px;padding:1.8rem;text-align:center}
-.upload-box h3{color:white;font-size:1.1rem;font-weight:900;margin-bottom:.5rem}
-.upload-box p{color:#aaa;font-size:.82rem;margin-bottom:1.2rem;line-height:1.6}
-.upload-drop{border:2.5px dashed #FF6B9D;border-radius:14px;padding:2rem 1rem;margin-bottom:1rem;cursor:pointer;transition:background .2s}
-.upload-drop:hover{background:rgba(255,107,157,.08)}
-.upload-drop-icon{font-size:2.5rem;margin-bottom:.5rem}
-.upload-drop p{color:#FF6B9D;font-weight:700;font-size:.9rem;margin:0}
-.upload-drop small{color:#666;font-size:.75rem}
-.upload-progress{margin:1rem 0;display:none}
-.upload-progress-bar{width:100%;background:#333;border-radius:99px;height:8px;overflow:hidden}
-.upload-progress-fill{background:linear-gradient(90deg,#FF6B9D,#C9A0DC);height:8px;border-radius:99px;width:0;transition:width .3s}
-.upload-progress-text{color:#aaa;font-size:.78rem;margin-top:.4rem}
-.upload-actions{display:flex;gap:10px;justify-content:center;margin-top:1rem}
-.upload-cancel{background:transparent;border:1.5px solid #555;color:#aaa;padding:8px 20px;border-radius:99px;cursor:pointer;font-size:.85rem}
-.upload-confirm{background:#FF6B9D;border:none;color:white;font-weight:700;padding:8px 20px;border-radius:99px;cursor:pointer;font-size:.85rem;display:none}
-.file-count{color:#95E1A4;font-size:.82rem;margin-top:.5rem;font-weight:700}
-
-.reader-body{flex:1;overflow-y:auto;padding:0;background:#222}
+.reader-body{flex:1;overflow-y:auto;background:#222}
 .webtoon-strip{max-width:480px;margin:0 auto;padding:0}
 .webtoon-strip img{width:100%;display:block;margin-bottom:18px;border-radius:6px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
-.webtoon-strip .panel-placeholder{width:100%;background:#2a2a3e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#555;gap:8px;padding:3rem 1rem;margin-bottom:18px;border-radius:6px}
-.webtoon-strip .panel-placeholder .pnum{font-size:2rem;color:#444}
-.webtoon-strip .panel-placeholder p{font-size:.8rem;text-align:center;line-height:1.6}
-
-/* 순서 미리보기 */
-.preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;max-height:220px;overflow-y:auto}
-.preview-thumb{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/4;background:#333}
-.preview-thumb img{width:100%;height:100%;object-fit:cover}
-.preview-thumb .num{position:absolute;top:3px;left:3px;background:rgba(0,0,0,.75);color:white;font-size:.65rem;font-weight:700;padding:1px 5px;border-radius:4px}
-.reorder-hint{font-size:.75rem;color:#888;margin-top:4px;text-align:center}
-
+.panel-placeholder{width:100%;background:#2a2a3e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#555;gap:8px;padding:3rem 1rem;margin-bottom:18px;border-radius:6px;min-height:300px}
 .reader-footer{background:#1a1a2e;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;border-top:2px solid #333}
 .vol-label{color:#aaa;font-size:.75rem}
 .vol-slider{width:100px;accent-color:#FF6B9D}
 .progress-bar-wrap{width:100%;background:#333;border-radius:99px;height:4px;margin:0 10px}
 .progress-bar{background:#FF6B9D;height:4px;border-radius:99px;width:0;transition:width .2s}
+
+/* UPLOAD */
+.upload-panel{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.9);align-items:center;justify-content:center}
+.upload-panel.open{display:flex}
+.upload-box{background:#1a1a2e;border-radius:20px;width:90vw;max-width:420px;padding:1.8rem;text-align:center}
+.upload-box h3{color:white;font-size:1.1rem;font-weight:900;margin-bottom:.5rem}
+.upload-box p{color:#aaa;font-size:.82rem;margin-bottom:1.2rem;line-height:1.6}
+.student-select{width:100%;padding:10px;border-radius:10px;border:2px solid #FF6B9D;background:#2a2a3e;color:white;font-size:.9rem;font-weight:700;margin-bottom:12px;cursor:pointer}
+.upload-drop{border:2.5px dashed #FF6B9D;border-radius:14px;padding:2rem 1rem;margin-bottom:1rem;cursor:pointer}
+.upload-drop p{color:#FF6B9D;font-weight:700;font-size:.9rem;margin:.5rem 0 0}
+.upload-drop small{color:#666;font-size:.75rem}
+.upload-progress{margin:1rem 0;display:none}
+.upload-progress-bar{width:100%;background:#333;border-radius:99px;height:8px;overflow:hidden}
+.upload-progress-fill{background:linear-gradient(90deg,#FF6B9D,#C9A0DC);height:8px;border-radius:99px;width:0;transition:width .3s}
+.upload-progress-text{color:#aaa;font-size:.78rem;margin-top:.4rem}
+.preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;max-height:200px;overflow-y:auto;display:none}
+.preview-thumb{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:3/4;background:#333}
+.preview-thumb img{width:100%;height:100%;object-fit:cover}
+.preview-thumb .num{position:absolute;top:3px;left:3px;background:rgba(0,0,0,.75);color:white;font-size:.65rem;font-weight:700;padding:1px 5px;border-radius:4px}
+.file-count{color:#95E1A4;font-size:.82rem;margin-top:.5rem;font-weight:700}
+.upload-actions{display:flex;gap:10px;justify-content:center;margin-top:1rem}
+.upload-cancel{background:transparent;border:1.5px solid #555;color:#aaa;padding:8px 20px;border-radius:99px;cursor:pointer;font-size:.85rem}
+.upload-confirm{background:#FF6B9D;border:none;color:white;font-weight:700;padding:8px 20px;border-radius:99px;cursor:pointer;font-size:.85rem;display:none}
 </style>
 
-<!-- LANDING PAGE -->
 <div id="landing">
 <section class="hero">
   <div class="hero-badge">✨ 곡성 입면초등학교 4학년</div>
@@ -121,9 +109,7 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
       <rect x="430" y="148" width="10" height="10" fill="#6B5335" rx="1"/><rect x="470" y="148" width="10" height="10" fill="#6B5335" rx="1"/>
       <rect x="50" y="108" width="90" height="40" fill="#FF6B9D" rx="8"/>
       <rect x="58" y="100" width="60" height="18" fill="#FF8FB0" rx="6"/>
-      <circle cx="68" cy="92" r="7" fill="white" opacity=".8"/>
-      <circle cx="76" cy="84" r="8" fill="white" opacity=".6"/>
-      <circle cx="87" cy="78" r="9" fill="white" opacity=".4"/>
+      <circle cx="68" cy="92" r="7" fill="white" opacity=".8"/><circle cx="76" cy="84" r="8" fill="white" opacity=".6"/><circle cx="87" cy="78" r="9" fill="white" opacity=".4"/>
       <circle cx="72" cy="148" r="11" fill="#C9A0DC" stroke="white" stroke-width="2"/><circle cx="72" cy="148" r="5" fill="white"/>
       <circle cx="108" cy="148" r="11" fill="#C9A0DC" stroke="white" stroke-width="2"/><circle cx="108" cy="148" r="5" fill="white"/>
       <rect x="148" y="112" width="80" height="36" fill="#FFD166" rx="8"/>
@@ -212,15 +198,15 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
   <p>6 심청이의 다음 모험을 함께 응원해 주세요!<br>직접 웹툰을 그려서 참여할 수도 있어요 ✏️</p>
   <a href="#" class="cta-btn">📬 참여하기</a>
 </section>
-<footer>© 2024 곡성 입면초등학교 4학년 웹툰 프로젝트 🌸 | 함께 그리는 우리들의 이야기</footer>
+<footer>© 2025 곡성 입면초등학교 4학년 웹툰 프로젝트 🌸 | 함께 그리는 우리들의 이야기</footer>
 </div>
 
 <!-- UPLOAD PANEL -->
 <div class="upload-panel" id="uploadPanel">
   <div class="upload-box">
     <h3>🖼️ 웹툰 이미지 올리기</h3>
-    <p id="uploadDesc">이미지를 올릴 학생을 선택하고<br>컴퓨터에서 이미지를 선택해 주세요!</p>
-    <select id="studentSelect" style="width:100%;padding:10px;border-radius:10px;border:2px solid #FF6B9D;background:#2a2a3e;color:white;font-size:.9rem;font-weight:700;margin-bottom:12px;cursor:pointer">
+    <p>이미지를 올릴 학생을 선택하고<br>컴퓨터에서 이미지를 선택해 주세요!</p>
+    <select class="student-select" id="studentSelect">
       <option value="">👇 학생 선택</option>
       <option value="송은범">1. 송은범</option>
       <option value="송하랑">2. 송하랑</option>
@@ -230,7 +216,7 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
       <option value="황민혁">6. 황민혁</option>
     </select>
     <div class="upload-drop" onclick="document.getElementById('fileInput').click()">
-      <div class="upload-drop-icon">📁</div>
+      <div style="font-size:2.5rem">📁</div>
       <p>클릭해서 이미지 선택</p>
       <small>JPG, PNG 여러 장 한꺼번에 선택 가능!</small>
     </div>
@@ -238,10 +224,9 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
     <div class="file-count" id="fileCount"></div>
     <div class="upload-progress" id="uploadProgress">
       <div class="upload-progress-bar"><div class="upload-progress-fill" id="progressFill"></div></div>
-      <div class="upload-progress-text" id="progressText">처리 중...</div>
+      <div class="upload-progress-text" id="progressText"></div>
     </div>
-    <div id="previewGrid" class="preview-grid" style="display:none"></div>
-    <div class="reorder-hint" id="reorderHint" style="display:none">📋 순서가 다르면 파일명을 01, 02, 03… 으로 바꾼 뒤 다시 선택해 주세요</div>
+    <div class="preview-grid" id="previewGrid"></div>
     <div class="upload-actions">
       <button class="upload-cancel" onclick="closeUpload()">취소</button>
       <button class="upload-confirm" id="confirmBtn" onclick="applyImages()">✅ 웹툰에 적용!</button>
@@ -249,12 +234,12 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
   </div>
 </div>
 
-<!-- WEBTOON READER -->
+<!-- READER -->
 <div id="reader">
   <div class="reader-header">
     <button class="reader-back" onclick="closeReader()">← 목록</button>
     <div class="reader-title" id="readerTitle">웹툰</div>
-    <button class="upload-btn" id="uploadBtn" onclick="openUpload()">🖼️ 이미지 올리기</button>
+    <button class="upload-btn" onclick="openUpload()">🖼️ 이미지 올리기</button>
     <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 음악 켜기</button>
   </div>
   <div class="reader-body" id="readerBody" onscroll="updateProgress()">
@@ -269,8 +254,7 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
 
 <script>
 // ── 웹툰 데이터 ──
-// 이미지 URL을 아래에 넣어주세요 (구글 드라이브: https://drive.google.com/uc?export=view&id=파일ID)
-const WEBTOONS = {
+var WEBTOONS = {
   "황민혁": {
     title: "6️⃣ 황민혁의 웹툰 — 효도 여행 대소동",
     color: "#FF9A6C",
@@ -298,359 +282,123 @@ const WEBTOONS = {
     ]
   },
   "송은범": { title:"1️⃣ 송은범의 웹툰", color:"#A0D8EF", pages:[
-      "https://drive.google.com/thumbnail?id=17dWtxw7ygVMAQGjSvzChuix7g9L3K6l7&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-cSmxYZd4pPsGJ1r8JLfm1IhJJLl6oYC&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1tZtlCWfN_zXevMDWEiHRrC1aVP19nqN8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uj84wtvJoQAYdF5VJgtxIFVQ3VEN3YMY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HIRNvPn82gADtsQPaC4zCOQ2VZNqkHCo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HF8c_GYxdXEb2Jx2y2x1l67HOlHWHDtq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1WwpkADPeWlk3bWqGpUTdkZwQ3SUWxxqr&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1YCmfNl35uZI2KG60OgyxJfDkYd-M7flK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1xWHMgITESCsxQiA4H029IEStRUcbgzu0&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HOO1gDI5MhsKcbjAZebkR_bsn44LL0ZG&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Fr0ZWBkhUf56gmiHBTWaf5t1grCercHT&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1fefczdXNxYw0nTB--QMyLAW1BLIG3JhA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iUL2MhVTpe5811lNGmqvMLouvI1Ya38B&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1NrIzPhPzVqSgPhacL1k0gqF8GJ_F2QoZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10Yx0o6huHi60AfnJ_G3eYqpwKqaNe4Ho&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1X7itDSlD1pn2rvCtZ64Dy4UvkhE9dy3B&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Pszf9ygAaoPxwyAI1EBQRdI3qgfN4eVA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Eo0CxjjdFG0m399bIWSfpTj3Qlnp6zQI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_39olE3GenYjL-udE0gsGs6Hb3dLx0eb&sz=w1000",
-      "https://drive.google.com/thumbnail?id=137OgITm7Hn56pfw0mK2P9CJNNjQG-MVS&sz=w1000"
-  ] },
+    "https://drive.google.com/thumbnail?id=17dWtxw7ygVMAQGjSvzChuix7g9L3K6l7&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-cSmxYZd4pPsGJ1r8JLfm1IhJJLl6oYC&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1tZtlCWfN_zXevMDWEiHRrC1aVP19nqN8&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1uj84wtvJoQAYdF5VJgtxIFVQ3VEN3YMY&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1HIRNvPn82gADtsQPaC4zCOQ2VZNqkHCo&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1HF8c_GYxdXEb2Jx2y2x1l67HOlHWHDtq&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1WwpkADPeWlk3bWqGpUTdkZwQ3SUWxxqr&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1YCmfNl35uZI2KG60OgyxJfDkYd-M7flK&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1xWHMgITESCsxQiA4H029IEStRUcbgzu0&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1HOO1gDI5MhsKcbjAZebkR_bsn44LL0ZG&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Fr0ZWBkhUf56gmiHBTWaf5t1grCercHT&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1fefczdXNxYw0nTB--QMyLAW1BLIG3JhA&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1iUL2MhVTpe5811lNGmqvMLouvI1Ya38B&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1NrIzPhPzVqSgPhacL1k0gqF8GJ_F2QoZ&sz=w1000",
+    "https://drive.google.com/thumbnail?id=10Yx0o6huHi60AfnJ_G3eYqpwKqaNe4Ho&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1X7itDSlD1pn2rvCtZ64Dy4UvkhE9dy3B&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Pszf9ygAaoPxwyAI1EBQRdI3qgfN4eVA&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Eo0CxjjdFG0m399bIWSfpTj3Qlnp6zQI&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1_39olE3GenYjL-udE0gsGs6Hb3dLx0eb&sz=w1000",
+    "https://drive.google.com/thumbnail?id=137OgITm7Hn56pfw0mK2P9CJNNjQG-MVS&sz=w1000"
+  ]},
   "송하랑": { title:"2️⃣ 송하랑의 웹툰", color:"#FF6B9D", pages:[
-      "https://drive.google.com/thumbnail?id=1-0K6faaJaq4byUEVX3dL1kgijmfuTgNv&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KuMmHx7dRQmlmLfr5Opn340YO33Kqp7u&sz=w1000",
-      "https://drive.google.com/thumbnail?id=11Jc0ZkZytEwQATTRICbOdQtCITxFvTyK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Jy0e0cNOoMPSRV9u9ssX_oY6NIRS46rN&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KTQIPKkjPEUvMagYTwAtSnctPrIHJyEb&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1NrlAI7aipWIBGIJHc0zcq7ZhhSxy75qg&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gfZ4OG9u-yhFqG9Zc8sn2PBA6XS_I0jp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1nfEi8lFqisn-qmkKoROkZ99I01flbGOB&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1VbIghJf-74CYIOa2d9nXKS_LOy3BtMT1&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1RsVYQUEpmabSqhTCXucQ0aDFfZMWG1Rx&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1AWcjaYzBHQTvWzjEei7sAZLge73OlZOd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1krLlf5nEdYsqYJT2a5xftFNjuiMuozGs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1jqFvV61qlafsNc2cKi0ccgzbS8cL4xjs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1P5QMuH68s3E_bjcaT4klB0wA9u_Q2RAi&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1d7m3XTkczUanSPLLUc-UiJUdjwLlTCxX&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18C3RiInFCaBUBSRlEbDTRx7egkj7NmMA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=16nfxwu956H-39KBG4jaySventdZ8v2TX&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1CndmrIwUHfbUjwD2EBnW8oU6UEKhj_Q0&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1yCjWG52INEQnJ7f5vWGGE_zSvt4WIUdn&sz=w1000"
-  ] },
+    "https://drive.google.com/thumbnail?id=1-0K6faaJaq4byUEVX3dL1kgijmfuTgNv&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1KuMmHx7dRQmlmLfr5Opn340YO33Kqp7u&sz=w1000",
+    "https://drive.google.com/thumbnail?id=11Jc0ZkZytEwQATTRICbOdQtCITxFvTyK&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Jy0e0cNOoMPSRV9u9ssX_oY6NIRS46rN&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1KTQIPKkjPEUvMagYTwAtSnctPrIHJyEb&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1NrlAI7aipWIBGIJHc0zcq7ZhhSxy75qg&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1gfZ4OG9u-yhFqG9Zc8sn2PBA6XS_I0jp&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1nfEi8lFqisn-qmkKoROkZ99I01flbGOB&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1VbIghJf-74CYIOa2d9nXKS_LOy3BtMT1&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1RsVYQUEpmabSqhTCXucQ0aDFfZMWG1Rx&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1AWcjaYzBHQTvWzjEei7sAZLge73OlZOd&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1krLlf5nEdYsqYJT2a5xftFNjuiMuozGs&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1jqFvV61qlafsNc2cKi0ccgzbS8cL4xjs&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1P5QMuH68s3E_bjcaT4klB0wA9u_Q2RAi&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1d7m3XTkczUanSPLLUc-UiJUdjwLlTCxX&sz=w1000",
+    "https://drive.google.com/thumbnail?id=18C3RiInFCaBUBSRlEbDTRx7egkj7NmMA&sz=w1000",
+    "https://drive.google.com/thumbnail?id=16nfxwu956H-39KBG4jaySventdZ8v2TX&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1CndmrIwUHfbUjwD2EBnW8oU6UEKhj_Q0&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1yCjWG52INEQnJ7f5vWGGE_zSvt4WIUdn&sz=w1000"
+  ]},
   "이시원": { title:"3️⃣ 이시원의 웹툰", color:"#95E1A4", pages:[
-      "https://drive.google.com/thumbnail?id=1u-20g1eWWy8emIKaCZju9MzhlEWca-Bt&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-OdRh2egkOkpfNRCk262zcHu9fE2xYNk&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EaioQX_jmZU1im0xjr5QGaqxgNpVshdA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1osKLKHH4JY_-SMZxQITP-VNhdCrVgKFH&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gQrIFBT1muLxAYVXw02242z8Kv1JYlUD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1fgExM4RUTj8YFDz_aohvZe5V2h8lWL0S&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1CHxvkeYP0OQFqXca3cBOZqz7W0ncOfOu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-aDgMYZuvUTXSHDEOq6MDD6PARU5r7qU&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UYD97oieqOJjqB5RX9Tz0jdnzqKTnETu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lwGNJ5vyXa6xbCrbPKkbH-AYoKuJ-vjm&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1I00v4Xh1gw20y40i6gdng6GEkSR8LxNI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10N1U04lt93L7YuNggWTkubZ35d0fNFBY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uQvtuChDnAgki-3x6ctkZ3RtIptKUQ2Q&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15CER8p7pbA6Apxu9XABTdV6WKWkeUOLD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1ysHM1kV_7DNQYG-I9UToYCfNluY05m9Q&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1r3ZqlYeusDWZFI6mioCk1HxBC76_0yqO&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1vKOsI4B_m2VOOnBF7j75zudZwrG3TIEa&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1GgIGyRyiHDgKUopqxRvxRplj81o8u-N8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1vYI3VQl-w_ElqhbamWWUG8-EBuZLzPCD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1SfNQ64ecqNxw6uuRsNESEOheZB01VnDu&sz=w1000"
-  ] },
+    "https://drive.google.com/thumbnail?id=1u-20g1eWWy8emIKaCZju9MzhlEWca-Bt&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-OdRh2egkOkpfNRCk262zcHu9fE2xYNk&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1EaioQX_jmZU1im0xjr5QGaqxgNpVshdA&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1osKLKHH4JY_-SMZxQITP-VNhdCrVgKFH&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1gQrIFBT1muLxAYVXw02242z8Kv1JYlUD&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1fgExM4RUTj8YFDz_aohvZe5V2h8lWL0S&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1CHxvkeYP0OQFqXca3cBOZqz7W0ncOfOu&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-aDgMYZuvUTXSHDEOq6MDD6PARU5r7qU&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1UYD97oieqOJjqB5RX9Tz0jdnzqKTnETu&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1lwGNJ5vyXa6xbCrbPKkbH-AYoKuJ-vjm&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1I00v4Xh1gw20y40i6gdng6GEkSR8LxNI&sz=w1000",
+    "https://drive.google.com/thumbnail?id=10N1U04lt93L7YuNggWTkubZ35d0fNFBY&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1uQvtuChDnAgki-3x6ctkZ3RtIptKUQ2Q&sz=w1000",
+    "https://drive.google.com/thumbnail?id=15CER8p7pbA6Apxu9XABTdV6WKWkeUOLD&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1ysHM1kV_7DNQYG-I9UToYCfNluY05m9Q&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1r3ZqlYeusDWZFI6mioCk1HxBC76_0yqO&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1vKOsI4B_m2VOOnBF7j75zudZwrG3TIEa&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1GgIGyRyiHDgKUopqxRvxRplj81o8u-N8&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1vYI3VQl-w_ElqhbamWWUG8-EBuZLzPCD&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1SfNQ64ecqNxw6uuRsNESEOheZB01VnDu&sz=w1000"
+  ]},
   "임나경": { title:"4️⃣ 임나경의 웹툰", color:"#C9A0DC", pages:[
-      "https://drive.google.com/thumbnail?id=1b69C5Mdo76FzfASQzu5ZBbDcsOcGBKQV&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1MPjf8MYcS5lZXT8FCIFm3DM5K_RN-v9h&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rObseSqTOboly6rbTJGETsb2jiZTUi0i&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1imQiKK1NXe6HMnzR10y39scDWuG-8tsy&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rhg2vN4TABEkmXaE3umpuj6dS8jsAhmv&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1B5aC-EodVdLvFmpYdZN2PDjWpI2Tgyfo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15P3hU7lcZW2rH_Yp0W1DvKiGTxgpFiSp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uH5eDuK0pW2cGRXBCERbs0r4gCdXSF6P&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1u0ZjJ6hSa6rRPy0HD1Mfsxs9yA-r4vi1&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1TcMu2pXSsIJSIZ3qSwZtc8-vBje5aaYn&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iwneUGG2kAySnLmEvk3TX8G8xuUz_rb6&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1L1Xv8clCiYgqeeFtzdXhDn4joiS-yVNF&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1m8NYyIPvOt5-JEDuMXs__U9C_THKifgf&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lJbeUzV7_nlQBn9AI64IhyCd4bZZuK76&sz=w1000",
-      "https://drive.google.com/thumbnail?id=12_-zAVPGEi9b6AEHFO8xt9-VC6ZbgBZZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UWtucThiR2aN0udwf1E--aAH7-hqRFoY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10f5iGTtODdPSnmnhXk0p-OrLsUBNiUGr&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HmeeSOo6pZCZ9jrygPuB0m96qp5txq8Y&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iat2oADpx8s5PIGizlsVacfOaw_d31U2&sz=w1000",
-      "https://drive.google.com/thumbnail?id=19aXZBhmABaUk_R8stlWupZEOXyCYXlWk&sz=w1000"
-  ] },
+    "https://drive.google.com/thumbnail?id=1b69C5Mdo76FzfASQzu5ZBbDcsOcGBKQV&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1MPjf8MYcS5lZXT8FCIFm3DM5K_RN-v9h&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1rObseSqTOboly6rbTJGETsb2jiZTUi0i&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1imQiKK1NXe6HMnzR10y39scDWuG-8tsy&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1rhg2vN4TABEkmXaE3umpuj6dS8jsAhmv&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1B5aC-EodVdLvFmpYdZN2PDjWpI2Tgyfo&sz=w1000",
+    "https://drive.google.com/thumbnail?id=15P3hU7lcZW2rH_Yp0W1DvKiGTxgpFiSp&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1uH5eDuK0pW2cGRXBCERbs0r4gCdXSF6P&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1u0ZjJ6hSa6rRPy0HD1Mfsxs9yA-r4vi1&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1TcMu2pXSsIJSIZ3qSwZtc8-vBje5aaYn&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1iwneUGG2kAySnLmEvk3TX8G8xuUz_rb6&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1L1Xv8clCiYgqeeFtzdXhDn4joiS-yVNF&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1m8NYyIPvOt5-JEDuMXs__U9C_THKifgf&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1lJbeUzV7_nlQBn9AI64IhyCd4bZZuK76&sz=w1000",
+    "https://drive.google.com/thumbnail?id=12_-zAVPGEi9b6AEHFO8xt9-VC6ZbgBZZ&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1UWtucThiR2aN0udwf1E--aAH7-hqRFoY&sz=w1000",
+    "https://drive.google.com/thumbnail?id=10f5iGTtODdPSnmnhXk0p-OrLsUBNiUGr&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1HmeeSOo6pZCZ9jrygPuB0m96qp5txq8Y&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1iat2oADpx8s5PIGizlsVacfOaw_d31U2&sz=w1000",
+    "https://drive.google.com/thumbnail?id=19aXZBhmABaUk_R8stlWupZEOXyCYXlWk&sz=w1000"
+  ]},
   "최희성": { title:"5️⃣ 최희성의 웹툰", color:"#FFD166", pages:[
-      "https://drive.google.com/thumbnail?id=1aTLWQHJcazfQ9tHP0IM09egJKAPpcW96&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-p3LlzdgTw_H5yOW3jsqcyYmSUm5UBFZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=14FT_NIje7uhVEZIjNM6WovOj9VAfWMf3&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Sf6Et1cC6mbDjAFf1Uh8gFDNtXROifFB&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1YFKWAIQIvg49ffKSMoFAQfEK26MOlDry&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1zsNviUaPsNYt1FpuShrS6guta5oMXdIp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Nhk6PAPMovaoA4D-X_3onLbzOnE8pbC-&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1eDsI1iz0N3BsDOdDbSKXPh6n3HiLlOIT&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rikQWGHezeBOPabOoFc8Ox4id5tWJ4jG&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1mhLtOQIi6KENQdKlmwVcy3IMrZmcWEHs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1OZa5bqEY4gpv3lk92qsYvRQsC7Qtv_Px&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-bxlamHpMBGjFdwfamjLE8rrhbYanQsU&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lZcSvb2zfVgYnG0KztHQbyE2W2bwvFW_&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1jRneYM0HeRd16j-eGTf2JSgvImcZxgV8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KbnkG1hRbCfOIxhUY7Qg1ALTuGBh5433&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1FVwqICuqq5Ca9Um7mujCGSaRZY9p6woN&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1B2KrMZFNAVLFyT1BDOXdBDjfehO8_Piz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1yyvvjLy4GNCX2xi6AC-JyhbQwn7StxLD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=131dYXLrCHF2mg_Qko_MV8VRNzvoo0ZyS&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-kx9e6nw2r8HCLGvaP5IaIyUAWhjq2DH&sz=w1000"
-  ] }
-};
-  "황민혁": {
-    title: "6️⃣ 황민혁의 웹툰 — 효도 여행 대소동",
-    color: "#FF9A6C",
-    pages: [
-      "https://drive.google.com/thumbnail?id=1MgG2WQ6mIwkGPx5_yarxyzLNbxOqiRPI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EOplXhFW_dPlTWJ_TcH5CGpGy2pYhy0H&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1ZDuMEsfMVf7-WMMa1Q_TspfDBkagdnIH&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1YW3TriNWfw1B14wHVbGnTdqYkranrek5&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15QkjwAarVW9PsSeELF9VY7aKnoO5BO9A&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18PYAMS1TD-YSwVtlqXLaSJOPRQYoyo5G&sz=w1000",
-      "https://drive.google.com/thumbnail?id=182TqggzjBN1rTZZkeZmq0AhWtt5oSo8S&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1pvOtfYr1mL1yq2zLfvunoKDPxB00jqUp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1015omi0fkXagY6neCWb1UrZPWSTBYyPM&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1cN0CQGyePOA-I8Odo9BrmrgonoaYqioI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1niswH8_4GV8Q4iV8TPujUn-X4ZWnX9uC&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1L8lmAI0PI-4eeo-zfZu2-s82TCKk43nr&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1b6wY5iJMJ_f-WtEY2kh20quJYgTartfQ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=16i1HvDwXEZa7om7br0XuQhrMHU4NObBy&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EQLBaxHjn9socX0vbu9lMA4gpVnTfZnR&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1tXOEPZf-FwvwcDX9HY1oqEGEwSsrFjtE&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1s-6E_v6qNhj144fN4jTBpj-0T9nRqXlz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1CU1T09zB2Okcw5NT-ft8RP9exAyiPhl8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1BJ9_M34s8HAQsts7Mj7Istw4RBJ5dzI3&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1MmLinSapAkozgTsMngZJGIkO5M3TiQHQ&sz=w1000"
-    ]
-  },
-  "송은범": { title:"1️⃣ 송은범의 웹툰", color:"#A0D8EF", pages:[
-      "https://drive.google.com/thumbnail?id=17dWtxw7ygVMAQGjSvzChuix7g9L3K6l7&sz=w1000",
-      "https://drive.google.com/thumbnail?id=137OgITm7Hn56pfw0mK2P9CJNNjQG-MVS&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-cSmxYZd4pPsGJ1r8JLfm1IhJJLl6oYC&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1tZtlCWfN_zXevMDWEiHRrC1aVP19nqN8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uj84wtvJoQAYdF5VJgtxIFVQ3VEN3YMY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HIRNvPn82gADtsQPaC4zCOQ2VZNqkHCo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HF8c_GYxdXEb2Jx2y2x1l67HOlHWHDtq&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1WwpkADPeWlk3bWqGpUTdkZwQ3SUWxxqr&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1YCmfNl35uZI2KG60OgyxJfDkYd-M7flK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1xWHMgITESCsxQiA4H029IEStRUcbgzu0&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HOO1gDI5MhsKcbjAZebkR_bsn44LL0ZG&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Fr0ZWBkhUf56gmiHBTWaf5t1grCercHT&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1fefczdXNxYw0nTB--QMyLAW1BLIG3JhA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iUL2MhVTpe5811lNGmqvMLouvI1Ya38B&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1NrIzPhPzVqSgPhacL1k0gqF8GJ_F2QoZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10Yx0o6huHi60AfnJ_G3eYqpwKqaNe4Ho&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1X7itDSlD1pn2rvCtZ64Dy4UvkhE9dy3B&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Pszf9ygAaoPxwyAI1EBQRdI3qgfN4eVA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Eo0CxjjdFG0m399bIWSfpTj3Qlnp6zQI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1_39olE3GenYjL-udE0gsGs6Hb3dLx0eb&sz=w1000"
-  ] },
-  "송하랑": { title:"2️⃣ 송하랑의 웹툰", color:"#FF6B9D", pages:[
-      "https://drive.google.com/thumbnail?id=1-0K6faaJaq4byUEVX3dL1kgijmfuTgNv&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1yCjWG52INEQnJ7f5vWGGE_zSvt4WIUdn&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KuMmHx7dRQmlmLfr5Opn340YO33Kqp7u&sz=w1000",
-      "https://drive.google.com/thumbnail?id=11Jc0ZkZytEwQATTRICbOdQtCITxFvTyK&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Jy0e0cNOoMPSRV9u9ssX_oY6NIRS46rN&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KTQIPKkjPEUvMagYTwAtSnctPrIHJyEb&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1NrlAI7aipWIBGIJHc0zcq7ZhhSxy75qg&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gfZ4OG9u-yhFqG9Zc8sn2PBA6XS_I0jp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1nfEi8lFqisn-qmkKoROkZ99I01flbGOB&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1VbIghJf-74CYIOa2d9nXKS_LOy3BtMT1&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1RsVYQUEpmabSqhTCXucQ0aDFfZMWG1Rx&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1AWcjaYzBHQTvWzjEei7sAZLge73OlZOd&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1krLlf5nEdYsqYJT2a5xftFNjuiMuozGs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1jqFvV61qlafsNc2cKi0ccgzbS8cL4xjs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1P5QMuH68s3E_bjcaT4klB0wA9u_Q2RAi&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1d7m3XTkczUanSPLLUc-UiJUdjwLlTCxX&sz=w1000",
-      "https://drive.google.com/thumbnail?id=18C3RiInFCaBUBSRlEbDTRx7egkj7NmMA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=16nfxwu956H-39KBG4jaySventdZ8v2TX&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1CndmrIwUHfbUjwD2EBnW8oU6UEKhj_Q0&sz=w1000"
-  ] },
-  "이시원": { title:"3️⃣ 이시원의 웹툰", color:"#95E1A4", pages:[
-      "https://drive.google.com/thumbnail?id=1u-20g1eWWy8emIKaCZju9MzhlEWca-Bt&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1SfNQ64ecqNxw6uuRsNESEOheZB01VnDu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-OdRh2egkOkpfNRCk262zcHu9fE2xYNk&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1EaioQX_jmZU1im0xjr5QGaqxgNpVshdA&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1osKLKHH4JY_-SMZxQITP-VNhdCrVgKFH&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1gQrIFBT1muLxAYVXw02242z8Kv1JYlUD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1fgExM4RUTj8YFDz_aohvZe5V2h8lWL0S&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1CHxvkeYP0OQFqXca3cBOZqz7W0ncOfOu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-aDgMYZuvUTXSHDEOq6MDD6PARU5r7qU&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UYD97oieqOJjqB5RX9Tz0jdnzqKTnETu&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lwGNJ5vyXa6xbCrbPKkbH-AYoKuJ-vjm&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1I00v4Xh1gw20y40i6gdng6GEkSR8LxNI&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10N1U04lt93L7YuNggWTkubZ35d0fNFBY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uQvtuChDnAgki-3x6ctkZ3RtIptKUQ2Q&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15CER8p7pbA6Apxu9XABTdV6WKWkeUOLD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1ysHM1kV_7DNQYG-I9UToYCfNluY05m9Q&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1r3ZqlYeusDWZFI6mioCk1HxBC76_0yqO&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1vKOsI4B_m2VOOnBF7j75zudZwrG3TIEa&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1GgIGyRyiHDgKUopqxRvxRplj81o8u-N8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1vYI3VQl-w_ElqhbamWWUG8-EBuZLzPCD&sz=w1000"
-  ] },
-  "임나경": { title:"4️⃣ 임나경의 웹툰", color:"#C9A0DC", pages:[
-      "https://drive.google.com/thumbnail?id=1b69C5Mdo76FzfASQzu5ZBbDcsOcGBKQV&sz=w1000",
-      "https://drive.google.com/thumbnail?id=19aXZBhmABaUk_R8stlWupZEOXyCYXlWk&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1MPjf8MYcS5lZXT8FCIFm3DM5K_RN-v9h&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rObseSqTOboly6rbTJGETsb2jiZTUi0i&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1imQiKK1NXe6HMnzR10y39scDWuG-8tsy&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rhg2vN4TABEkmXaE3umpuj6dS8jsAhmv&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1B5aC-EodVdLvFmpYdZN2PDjWpI2Tgyfo&sz=w1000",
-      "https://drive.google.com/thumbnail?id=15P3hU7lcZW2rH_Yp0W1DvKiGTxgpFiSp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1uH5eDuK0pW2cGRXBCERbs0r4gCdXSF6P&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1u0ZjJ6hSa6rRPy0HD1Mfsxs9yA-r4vi1&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1TcMu2pXSsIJSIZ3qSwZtc8-vBje5aaYn&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iwneUGG2kAySnLmEvk3TX8G8xuUz_rb6&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1L1Xv8clCiYgqeeFtzdXhDn4joiS-yVNF&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1m8NYyIPvOt5-JEDuMXs__U9C_THKifgf&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lJbeUzV7_nlQBn9AI64IhyCd4bZZuK76&sz=w1000",
-      "https://drive.google.com/thumbnail?id=12_-zAVPGEi9b6AEHFO8xt9-VC6ZbgBZZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1UWtucThiR2aN0udwf1E--aAH7-hqRFoY&sz=w1000",
-      "https://drive.google.com/thumbnail?id=10f5iGTtODdPSnmnhXk0p-OrLsUBNiUGr&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1HmeeSOo6pZCZ9jrygPuB0m96qp5txq8Y&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1iat2oADpx8s5PIGizlsVacfOaw_d31U2&sz=w1000"
-  ] },
-  "최희성": { title:"5️⃣ 최희성의 웹툰", color:"#FFD166", pages:[
-      "https://drive.google.com/thumbnail?id=1aTLWQHJcazfQ9tHP0IM09egJKAPpcW96&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-kx9e6nw2r8HCLGvaP5IaIyUAWhjq2DH&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-p3LlzdgTw_H5yOW3jsqcyYmSUm5UBFZ&sz=w1000",
-      "https://drive.google.com/thumbnail?id=14FT_NIje7uhVEZIjNM6WovOj9VAfWMf3&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Sf6Et1cC6mbDjAFf1Uh8gFDNtXROifFB&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1YFKWAIQIvg49ffKSMoFAQfEK26MOlDry&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1zsNviUaPsNYt1FpuShrS6guta5oMXdIp&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1Nhk6PAPMovaoA4D-X_3onLbzOnE8pbC-&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1eDsI1iz0N3BsDOdDbSKXPh6n3HiLlOIT&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1rikQWGHezeBOPabOoFc8Ox4id5tWJ4jG&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1mhLtOQIi6KENQdKlmwVcy3IMrZmcWEHs&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1OZa5bqEY4gpv3lk92qsYvRQsC7Qtv_Px&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1-bxlamHpMBGjFdwfamjLE8rrhbYanQsU&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1lZcSvb2zfVgYnG0KztHQbyE2W2bwvFW_&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1jRneYM0HeRd16j-eGTf2JSgvImcZxgV8&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1KbnkG1hRbCfOIxhUY7Qg1ALTuGBh5433&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1FVwqICuqq5Ca9Um7mujCGSaRZY9p6woN&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1B2KrMZFNAVLFyT1BDOXdBDjfehO8_Piz&sz=w1000",
-      "https://drive.google.com/thumbnail?id=1yyvvjLy4GNCX2xi6AC-JyhbQwn7StxLD&sz=w1000",
-      "https://drive.google.com/thumbnail?id=131dYXLrCHF2mg_Qko_MV8VRNzvoo0ZyS&sz=w1000"
-  ] }
+    "https://drive.google.com/thumbnail?id=1aTLWQHJcazfQ9tHP0IM09egJKAPpcW96&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-p3LlzdgTw_H5yOW3jsqcyYmSUm5UBFZ&sz=w1000",
+    "https://drive.google.com/thumbnail?id=14FT_NIje7uhVEZIjNM6WovOj9VAfWMf3&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Sf6Et1cC6mbDjAFf1Uh8gFDNtXROifFB&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1YFKWAIQIvg49ffKSMoFAQfEK26MOlDry&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1zsNviUaPsNYt1FpuShrS6guta5oMXdIp&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1Nhk6PAPMovaoA4D-X_3onLbzOnE8pbC-&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1eDsI1iz0N3BsDOdDbSKXPh6n3HiLlOIT&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1rikQWGHezeBOPabOoFc8Ox4id5tWJ4jG&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1mhLtOQIi6KENQdKlmwVcy3IMrZmcWEHs&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1OZa5bqEY4gpv3lk92qsYvRQsC7Qtv_Px&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-bxlamHpMBGjFdwfamjLE8rrhbYanQsU&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1lZcSvb2zfVgYnG0KztHQbyE2W2bwvFW_&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1jRneYM0HeRd16j-eGTf2JSgvImcZxgV8&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1KbnkG1hRbCfOIxhUY7Qg1ALTuGBh5433&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1FVwqICuqq5Ca9Um7mujCGSaRZY9p6woN&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1B2KrMZFNAVLFyT1BDOXdBDjfehO8_Piz&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1yyvvjLy4GNCX2xi6AC-JyhbQwn7StxLD&sz=w1000",
+    "https://drive.google.com/thumbnail?id=131dYXLrCHF2mg_Qko_MV8VRNzvoo0ZyS&sz=w1000",
+    "https://drive.google.com/thumbnail?id=1-kx9e6nw2r8HCLGvaP5IaIyUAWhjq2DH&sz=w1000"
+  ]}
 };
 
-// ── 이미지 직접 업로드 ──
-let uploadedImages = [];
-let currentUploadTarget = '';
-
-function openUpload() {
-  currentUploadTarget = currentReaderName;
-  uploadedImages = [];
-  document.getElementById('fileInput').value = '';
-  document.getElementById('fileCount').textContent = '';
-  document.getElementById('uploadProgress').style.display = 'none';
-  document.getElementById('confirmBtn').style.display = 'none';
-  document.getElementById('progressFill').style.width = '0';
-  document.getElementById('previewGrid').style.display = 'none';
-  document.getElementById('previewGrid').innerHTML = '';
-  document.getElementById('reorderHint').style.display = 'none';
-  // 드롭다운을 현재 열린 학생으로 미리 선택
-  var sel = document.getElementById('studentSelect');
-  sel.value = currentReaderName || '';
-  document.getElementById('uploadPanel').classList.add('open');
-}
-
-function closeUpload() {
-  document.getElementById('uploadPanel').classList.remove('open');
-  document.getElementById('previewGrid').style.display = 'none';
-  document.getElementById('previewGrid').innerHTML = '';
-  document.getElementById('reorderHint').style.display = 'none';
-}
-
-function handleFiles(files) {
-  if (!files || files.length === 0) return;
-  uploadedImages = [];
-
-  const sorted = Array.from(files).sort((a, b) =>
-    a.name.localeCompare(b.name, undefined, {numeric: true})
-  );
-
-  document.getElementById('fileCount').textContent = '📂 ' + sorted.length + '장 선택됨 — 불러오는 중...';
-  document.getElementById('uploadProgress').style.display = 'block';
-  document.getElementById('confirmBtn').style.display = 'none';
-  document.getElementById('progressFill').style.width = '0';
-
-  let done = 0;
-  const total = sorted.length;
-
-  sorted.forEach(function(file, i) {
-    var fr = new FileReader();
-    fr.onload = function(e) {
-      uploadedImages[i] = e.target.result;
-      done++;
-      var pct = Math.round(done / total * 100);
-      document.getElementById('progressFill').style.width = pct + '%';
-      document.getElementById('progressText').textContent = done + ' / ' + total + '장 처리 중...';
-      if (done === total) {
-        document.getElementById('progressText').textContent = '✅ ' + total + '장 준비 완료! 순서를 확인해 주세요.';
-        document.getElementById('fileCount').textContent = '📂 ' + total + '장 선택됨';
-        document.getElementById('confirmBtn').style.display = 'inline-block';
-        // 미리보기 그리드
-        var grid = document.getElementById('previewGrid');
-        grid.innerHTML = '';
-        grid.style.display = 'grid';
-        document.getElementById('reorderHint').style.display = 'block';
-        uploadedImages.forEach(function(src, idx) {
-          var div = document.createElement('div');
-          div.className = 'preview-thumb';
-          var img = document.createElement('img');
-          img.src = src;
-          var num = document.createElement('div');
-          num.className = 'num';
-          num.textContent = (idx + 1) + '번';
-          div.appendChild(img);
-          div.appendChild(num);
-          grid.appendChild(div);
-        });
-      }
-    };
-    fr.readAsDataURL(file);
-  });
-}
-
-function applyImages() {
-  // 학생 선택 드롭다운 우선, 없으면 currentUploadTarget 사용
-  var sel = document.getElementById('studentSelect').value;
-  var target = sel || currentUploadTarget;
-
-  var imgs = uploadedImages.filter(function(x) { return !!x; });
-  if (imgs.length === 0) { alert('이미지를 먼저 선택해 주세요!'); return; }
-  if (!target) { alert('학생을 먼저 선택해 주세요!'); return; }
-
-  WEBTOONS[target].pages = imgs;
-  closeUpload();
-
-  // 리더가 열려 있으면 해당 학생 웹툰으로 업데이트
-  var reader = document.getElementById('reader');
-  if (reader.classList.contains('open') && currentReaderName === target) {
-    buildStrip(WEBTOONS[target].pages, WEBTOONS[target].color);
-    document.getElementById('readerBody').scrollTop = 0;
-  } else {
-    // 리더가 닫혀 있으면 자동으로 열어줌
-    openReader(target);
-  }
-}
-
+// ── 리더 ──
 var currentReaderName = '';
 
 function openReader(name) {
-  const data = WEBTOONS[name];
+  var data = WEBTOONS[name];
   if (!data) return;
+  currentReaderName = name;
   document.getElementById('readerTitle').textContent = data.title;
   document.querySelector('.reader-header').style.borderBottomColor = data.color;
   buildStrip(data.pages, data.color);
@@ -659,98 +407,141 @@ function openReader(name) {
   document.getElementById('readerBody').scrollTop = 0;
   startMusic();
 }
+
 function closeReader() {
   document.getElementById('reader').classList.remove('open');
   document.body.style.overflow = '';
   stopMusic();
 }
+
+function buildStrip(pages, color) {
+  var strip = document.getElementById('webtoonStrip');
+  strip.innerHTML = '';
+  if (!pages || pages.length === 0) {
+    strip.innerHTML = '<div class="panel-placeholder"><div style="font-size:2rem">🚧</div><p style="color:#666">아직 이미지가 연결되지 않았어요!</p></div>';
+    return;
+  }
+  pages.forEach(function(url, i) {
+    var img = document.createElement('img');
+    img.src = url;
+    img.alt = (i+1) + '번째 컷';
+    img.onerror = function() {
+      var ph = document.createElement('div');
+      ph.className = 'panel-placeholder';
+      ph.innerHTML = '<div style="font-size:1.5rem">⚠️</div><p style="color:#666">' + (i+1) + '번째 이미지를 불러올 수 없어요</p>';
+      img.replaceWith(ph);
+    };
+    strip.appendChild(img);
+  });
+}
+
 function updateProgress() {
-  const b = document.getElementById('readerBody');
-  const pct = b.scrollTop / (b.scrollHeight - b.clientHeight) * 100;
+  var b = document.getElementById('readerBody');
+  var pct = b.scrollTop / (b.scrollHeight - b.clientHeight) * 100;
   document.getElementById('progressBar').style.width = Math.min(pct,100) + '%';
 }
 
-// ── 웹툰 스트립 빌드 ──
-function buildStrip(pages, color) {
-  const strip = document.getElementById('webtoonStrip');
-  strip.innerHTML = '';
-  if (!pages || pages.length === 0) {
-    strip.innerHTML = '<div class="panel-placeholder" style="min-height:50vh"><div class="pnum">🚧</div><p>아직 이미지가 연결되지 않았어요!<br>구글 드라이브 링크를 추가해 주세요 😊</p></div>';
-    return;
-  }
-  pages.forEach((url, i) => {
-    if (!url || url.startsWith('IMAGE_URL')) {
-      const ph = document.createElement('div');
-      ph.className = 'panel-placeholder';
-      ph.style.minHeight = '340px';
-      ph.style.borderBottom = '4px solid ' + color;
-      ph.innerHTML = '<div class="pnum" style="color:' + color + '">' + (i+1) + '</div><p style="color:#666">' + (i+1) + '번째 컷<br><small>이미지 URL을 연결해 주세요</small></p>';
-      strip.appendChild(ph);
-    } else {
-      const img = document.createElement('img');
-      img.src = url;
-      img.alt = (i+1) + '번째 컷';
-      img.style.borderBottom = '3px solid #111';
-      img.onerror = () => {
-        const ph = document.createElement('div');
-        ph.className = 'panel-placeholder';
-        ph.innerHTML = '<div class="pnum">⚠️</div><p>이미지를 불러올 수 없어요</p>';
-        img.replaceWith(ph);
-      };
-      strip.appendChild(img);
-    }
+// ── 업로드 ──
+var uploadedImages = [];
+
+function openUpload() {
+  uploadedImages = [];
+  document.getElementById('fileInput').value = '';
+  document.getElementById('fileCount').textContent = '';
+  document.getElementById('uploadProgress').style.display = 'none';
+  document.getElementById('confirmBtn').style.display = 'none';
+  document.getElementById('progressFill').style.width = '0';
+  document.getElementById('previewGrid').style.display = 'none';
+  document.getElementById('previewGrid').innerHTML = '';
+  document.getElementById('studentSelect').value = currentReaderName || '';
+  document.getElementById('uploadPanel').classList.add('open');
+}
+
+function closeUpload() {
+  document.getElementById('uploadPanel').classList.remove('open');
+}
+
+function handleFiles(files) {
+  if (!files || files.length === 0) return;
+  uploadedImages = [];
+  var sorted = Array.from(files).sort(function(a,b) { return a.name.localeCompare(b.name, undefined, {numeric:true}); });
+  document.getElementById('fileCount').textContent = '📂 ' + sorted.length + '장 선택됨';
+  document.getElementById('uploadProgress').style.display = 'block';
+  document.getElementById('confirmBtn').style.display = 'none';
+  var done = 0;
+  sorted.forEach(function(file, i) {
+    var fr = new FileReader();
+    fr.onload = function(e) {
+      uploadedImages[i] = e.target.result;
+      done++;
+      document.getElementById('progressFill').style.width = Math.round(done/sorted.length*100) + '%';
+      document.getElementById('progressText').textContent = done + ' / ' + sorted.length + '장 처리 중...';
+      if (done === sorted.length) {
+        document.getElementById('progressText').textContent = '✅ ' + done + '장 준비 완료!';
+        document.getElementById('confirmBtn').style.display = 'inline-block';
+        var grid = document.getElementById('previewGrid');
+        grid.innerHTML = '';
+        grid.style.display = 'grid';
+        uploadedImages.forEach(function(src, idx) {
+          var div = document.createElement('div');
+          div.className = 'preview-thumb';
+          var img = document.createElement('img'); img.src = src;
+          var num = document.createElement('div'); num.className = 'num'; num.textContent = (idx+1)+'번';
+          div.appendChild(img); div.appendChild(num); grid.appendChild(div);
+        });
+      }
+    };
+    fr.readAsDataURL(file);
   });
 }
 
-// ── 배경음악 (Suno MP3) ──
-// ✅ Suno에서 다운받은 MP3 파일을 구글 드라이브에 올린 뒤
-//    아래 MUSIC_URL에 직접 링크를 붙여넣으세요!
-// 구글 드라이브 링크 변환: https://drive.google.com/uc?export=view&id=파일ID
-const MUSIC_URL = "YOUR_SUNO_MUSIC_URL_HERE";
+function applyImages() {
+  var target = document.getElementById('studentSelect').value || currentReaderName;
+  var imgs = uploadedImages.filter(function(x) { return !!x; });
+  if (!imgs.length) { alert('이미지를 먼저 선택해 주세요!'); return; }
+  if (!target) { alert('학생을 먼저 선택해 주세요!'); return; }
+  WEBTOONS[target].pages = imgs;
+  closeUpload();
+  if (currentReaderName === target) {
+    buildStrip(WEBTOONS[target].pages, WEBTOONS[target].color);
+    document.getElementById('readerBody').scrollTop = 0;
+  } else {
+    openReader(target);
+  }
+}
 
-const bgm = new Audio();
+// ── 배경음악 ──
+var MUSIC_URL = "YOUR_SUNO_MUSIC_URL_HERE";
+var bgm = new Audio();
 bgm.loop = true;
 bgm.volume = 0.4;
-let musicPlaying = false;
+var musicPlaying = false;
 
 function startMusic() {
-  if (musicPlaying) return;
-  if (!MUSIC_URL || MUSIC_URL === "YOUR_SUNO_MUSIC_URL_HERE") {
-    console.warn("음악 URL을 설정해 주세요!");
-    updateMusicBtn(); return;
-  }
-  if (!bgm.src || bgm.src !== MUSIC_URL) bgm.src = MUSIC_URL;
-  bgm.play().then(() => {
-    musicPlaying = true;
-    updateMusicBtn();
-  }).catch(() => {
-    console.warn("음악 자동재생 차단됨 - 버튼으로 재생 가능");
-    musicPlaying = false;
-    updateMusicBtn();
-  });
+  if (musicPlaying || !MUSIC_URL || MUSIC_URL === "YOUR_SUNO_MUSIC_URL_HERE") return;
+  bgm.src = MUSIC_URL;
+  bgm.play().then(function() { musicPlaying = true; updateMusicBtn(); }).catch(function() {});
 }
 
 function stopMusic() {
-  bgm.pause();
-  bgm.currentTime = 0;
-  musicPlaying = false;
-  updateMusicBtn();
+  bgm.pause(); bgm.currentTime = 0;
+  musicPlaying = false; updateMusicBtn();
 }
 
 function toggleMusic() {
-  if (musicPlaying) stopMusic(); else startMusic();
+  if (musicPlaying) stopMusic();
+  else {
+    if (!MUSIC_URL || MUSIC_URL === "YOUR_SUNO_MUSIC_URL_HERE") { alert('음악 URL을 먼저 설정해 주세요!'); return; }
+    bgm.src = MUSIC_URL;
+    bgm.play().then(function() { musicPlaying = true; updateMusicBtn(); }).catch(function() {});
+  }
 }
 
 function updateMusicBtn() {
-  const btn = document.getElementById('musicBtn');
-  if (!MUSIC_URL || MUSIC_URL === "YOUR_SUNO_MUSIC_URL_HERE") {
-    btn.textContent = '🎵 음악 준비 중'; btn.classList.remove('playing'); return;
-  }
+  var btn = document.getElementById('musicBtn');
   if (musicPlaying) { btn.textContent = '🎵 음악 끄기'; btn.classList.add('playing'); }
   else { btn.textContent = '🎵 음악 켜기'; btn.classList.remove('playing'); }
 }
 
-function setVolume(val) {
-  bgm.volume = val / 100;
-}
+function setVolume(val) { bgm.volume = val / 100; }
 </script>
