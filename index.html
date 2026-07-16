@@ -3,7 +3,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR',sans-serif;background:#FFF9F0;color:#2d2d2d;overflow-x:hidden}
 #landing{transition:opacity .4s}
-.hero{background:linear-gradient(160deg,#FFE8CC,#FFDDE8 50%,#D4EEFF);padding:3rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(160deg,rgba(255,232,204,0.85),rgba(255,221,232,0.8) 50%,rgba(212,238,255,0.85)),url('https://raw.githubusercontent.com/lje0244-gif/my-class/main/train-bg.jpg') center/cover no-repeat;padding:3rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40px;left:-40px;width:180px;height:180px;background:#FFD166;border-radius:50%;opacity:.3}
 .hero::after{content:'';position:absolute;bottom:-60px;right:-30px;width:220px;height:220px;background:#A0D8EF;border-radius:50%;opacity:.3}
 .hero-badge{display:inline-block;background:#FF6B9D;color:white;font-size:13px;font-weight:700;padding:5px 16px;border-radius:99px;margin-bottom:1rem}
@@ -55,6 +55,17 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
 .webtoon-strip{max-width:480px;margin:0 auto;padding:0}
 .webtoon-strip img{width:100%;display:block;margin-bottom:18px;border-radius:6px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
 .panel-placeholder{width:100%;background:#2a2a3e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#555;gap:8px;padding:3rem 1rem;margin-bottom:18px;border-radius:6px;min-height:300px}
+
+/* 웹툰 표지 */
+.webtoon-cover{width:100%;margin-bottom:18px;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.6);position:relative;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.cover-overlay{position:absolute;inset:0}
+.cover-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.cover-deco{font-size:4rem;margin-bottom:1rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+.cover-badge{display:inline-block;background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.7);color:white;font-size:.82rem;font-weight:700;padding:4px 16px;border-radius:99px;margin-bottom:1rem;backdrop-filter:blur(4px)}
+.cover-title{font-size:1.9rem;font-weight:900;color:white;line-height:1.25;margin-bottom:.6rem;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.cover-sub{font-size:.9rem;color:rgba(255,255,255,.92);font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,.5);margin-bottom:1.8rem;line-height:1.5}
+.cover-author{background:rgba(255,255,255,.22);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.5);color:white;font-size:.9rem;font-weight:900;padding:10px 28px;border-radius:99px;letter-spacing:.05em}
+.cover-stars{margin-top:1rem;font-size:1.2rem;opacity:.8}
 .reader-footer{background:#1a1a2e;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-shrink:0;border-top:2px solid #333}
 .vol-label{color:#aaa;font-size:.75rem}
 .vol-slider{width:100px;accent-color:#FF6B9D}
@@ -257,10 +268,14 @@ footer{text-align:center;padding:1.5rem;font-size:.78rem;color:#aaa;background:#
 var WEBTOONS = {
   "황민혁": {
     title: "6️⃣ 황민혁의 웹툰 — 효도 여행 대소동",
+    coverTitle: "효도 여행 대소동",
+    coverSub: "형이 계획한 특별한 하루!\n과연 효도 여행은 성공할까?",
+    author: "황민혁",
+    emoji: "🚲",
     color: "#FF9A6C",
     music: "https://drive.google.com/uc?export=view&id=1GZvKLiTq3S3rt0ogdrLlvwsDWCvrjef_",
     pages: [
-      "https://drive.google.com/thumbnail?id=101MqB86aLg1EQYQzXI3p0O3l-vR_KHxz&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Rm-3zxLQHgFgUE5zSlHjH2o5AaIO77rg&sz=w1000",
       "https://drive.google.com/thumbnail?id=1o6FvCTPc_kZfg4zxvtHPETCYZvkTNKlO&sz=w1000",
       "https://drive.google.com/thumbnail?id=1WQEB2zSt7zdOUv6Z7IOQSVtlTAOe1zb8&sz=w1000",
       "https://drive.google.com/thumbnail?id=12XRlAcm9Sjm1KX-7EoZptQbUcFZhX579&sz=w1000",
@@ -282,8 +297,8 @@ var WEBTOONS = {
       "https://drive.google.com/thumbnail?id=1FTa9pRkAk9CHss3-wnZwaeHoPLaj76AY&sz=w1000"
     ]
   },
-  "송은범": { title:"1️⃣ 송은범의 웹툰", color:"#A0D8EF", music:"https://drive.google.com/uc?export=view&id=19C5zxlzH1BTyEUtuE_V5CWLgZM4BQcqL", pages:[
-    "https://drive.google.com/thumbnail?id=17dWtxw7ygVMAQGjSvzChuix7g9L3K6l7&sz=w1000",
+  "송은범": { title:"1️⃣ 송은범의 웹툰", coverTitle:"마라탕 원정대", coverSub:"맛있는 걸 위해서라면\n무엇이든 할 수 있어!", author:"송은범", emoji:"🍜", color:"#A0D8EF", music:"https://drive.google.com/uc?export=view&id=19C5zxlzH1BTyEUtuE_V5CWLgZM4BQcqL", pages:[
+    "https://drive.google.com/thumbnail?id=1805O4qPZK9-XrifkMQ5LhnRFTpx0XQ6T&sz=w1000",
     "https://drive.google.com/thumbnail?id=1-cSmxYZd4pPsGJ1r8JLfm1IhJJLl6oYC&sz=w1000",
     "https://drive.google.com/thumbnail?id=1tZtlCWfN_zXevMDWEiHRrC1aVP19nqN8&sz=w1000",
     "https://drive.google.com/thumbnail?id=1uj84wtvJoQAYdF5VJgtxIFVQ3VEN3YMY&sz=w1000",
@@ -304,8 +319,8 @@ var WEBTOONS = {
     "https://drive.google.com/thumbnail?id=1_39olE3GenYjL-udE0gsGs6Hb3dLx0eb&sz=w1000",
     "https://drive.google.com/thumbnail?id=137OgITm7Hn56pfw0mK2P9CJNNjQG-MVS&sz=w1000"
   ]},
-  "송하랑": { title:"2️⃣ 송하랑의 웹툰", color:"#FF6B9D", music:"https://drive.google.com/uc?export=view&id=10QWShn4DVX8Ye_uYeMvkyG9jCCFysTQP", pages:[
-    "https://drive.google.com/thumbnail?id=1-0K6faaJaq4byUEVX3dL1kgijmfuTgNv&sz=w1000",
+  "송하랑": { title:"2️⃣ 송하랑의 웹툰", coverTitle:"하랑이의 특별한 하루", coverSub:"평범한 일상 속\n특별한 이야기가 펼쳐진다!", author:"송하랑", emoji:"🌸", color:"#FF6B9D", music:"https://drive.google.com/uc?export=view&id=10QWShn4DVX8Ye_uYeMvkyG9jCCFysTQP", pages:[
+    "https://drive.google.com/thumbnail?id=1OC33Ln-QupQ9s9jZNFhJSqz7tK77yIXU&sz=w1000",
     "https://drive.google.com/thumbnail?id=1KuMmHx7dRQmlmLfr5Opn340YO33Kqp7u&sz=w1000",
     "https://drive.google.com/thumbnail?id=11Jc0ZkZytEwQATTRICbOdQtCITxFvTyK&sz=w1000",
     "https://drive.google.com/thumbnail?id=1Jy0e0cNOoMPSRV9u9ssX_oY6NIRS46rN&sz=w1000",
@@ -325,8 +340,8 @@ var WEBTOONS = {
     "https://drive.google.com/thumbnail?id=1CndmrIwUHfbUjwD2EBnW8oU6UEKhj_Q0&sz=w1000",
     "https://drive.google.com/thumbnail?id=1yCjWG52INEQnJ7f5vWGGE_zSvt4WIUdn&sz=w1000"
   ]},
-  "이시원": { title:"3️⃣ 이시원의 웹툰", color:"#95E1A4", music:"https://drive.google.com/uc?export=view&id=1MJ1wFp3hwDvSD81c-CP-rt058z72TjwE", pages:[
-    "https://drive.google.com/thumbnail?id=1u-20g1eWWy8emIKaCZju9MzhlEWca-Bt&sz=w1000",
+  "이시원": { title:"3️⃣ 이시원의 웹툰", coverTitle:"시원이의 대모험", coverSub:"아이디어 하나로\n세상을 바꿔볼게!", author:"이시원", emoji:"💡", color:"#95E1A4", music:"https://drive.google.com/uc?export=view&id=1MJ1wFp3hwDvSD81c-CP-rt058z72TjwE", pages:[
+    "https://drive.google.com/thumbnail?id=1WBCYr7xfzwZSPEWMApH-2JRjoDNyqVW3&sz=w1000",
     "https://drive.google.com/thumbnail?id=1-OdRh2egkOkpfNRCk262zcHu9fE2xYNk&sz=w1000",
     "https://drive.google.com/thumbnail?id=1EaioQX_jmZU1im0xjr5QGaqxgNpVshdA&sz=w1000",
     "https://drive.google.com/thumbnail?id=1osKLKHH4JY_-SMZxQITP-VNhdCrVgKFH&sz=w1000",
@@ -347,8 +362,8 @@ var WEBTOONS = {
     "https://drive.google.com/thumbnail?id=1vYI3VQl-w_ElqhbamWWUG8-EBuZLzPCD&sz=w1000",
     "https://drive.google.com/thumbnail?id=1SfNQ64ecqNxw6uuRsNESEOheZB01VnDu&sz=w1000"
   ]},
-  "임나경": { title:"4️⃣ 임나경의 웹툰", color:"#C9A0DC", music:"https://drive.google.com/uc?export=view&id=1QKJUbPBoJVC0EK6ptwJbXZx0xsbGOSDh", pages:[
-    "https://drive.google.com/thumbnail?id=1b69C5Mdo76FzfASQzu5ZBbDcsOcGBKQV&sz=w1000",
+  "임나경": { title:"4️⃣ 임나경의 웹툰", coverTitle:"나경이의 비밀 일기", coverSub:"책 속에 숨겨진\n놀라운 세계로 초대합니다!", author:"임나경", emoji:"📚", color:"#C9A0DC", music:"https://drive.google.com/uc?export=view&id=1QKJUbPBoJVC0EK6ptwJbXZx0xsbGOSDh", pages:[
+    "https://drive.google.com/thumbnail?id=1umMHzY5X3QQbDYWxDPMn5Z7XPTvKN0WI&sz=w1000",
     "https://drive.google.com/thumbnail?id=1MPjf8MYcS5lZXT8FCIFm3DM5K_RN-v9h&sz=w1000",
     "https://drive.google.com/thumbnail?id=1rObseSqTOboly6rbTJGETsb2jiZTUi0i&sz=w1000",
     "https://drive.google.com/thumbnail?id=1imQiKK1NXe6HMnzR10y39scDWuG-8tsy&sz=w1000",
@@ -369,8 +384,8 @@ var WEBTOONS = {
     "https://drive.google.com/thumbnail?id=1iat2oADpx8s5PIGizlsVacfOaw_d31U2&sz=w1000",
     "https://drive.google.com/thumbnail?id=19aXZBhmABaUk_R8stlWupZEOXyCYXlWk&sz=w1000"
   ]},
-  "최희성": { title:"5️⃣ 최희성의 웹툰", color:"#FFD166", music:"https://drive.google.com/uc?export=view&id=1eSd5i9d8MoniHLQQIubxy2jGnkdpDjYS", pages:[
-    "https://drive.google.com/thumbnail?id=1aTLWQHJcazfQ9tHP0IM09egJKAPpcW96&sz=w1000",
+  "최희성": { title:"5️⃣ 최희성의 웹툰", coverTitle:"안경 쓴 심청이", coverSub:"지혜로운 안경 심청이의\n좌충우돌 일상!", author:"최희성", emoji:"🤓", color:"#FFD166", music:"https://drive.google.com/uc?export=view&id=1eSd5i9d8MoniHLQQIubxy2jGnkdpDjYS", pages:[
+    "https://drive.google.com/thumbnail?id=1ZrvUdfCHdl0g1ygtFUUkrRYv9rJbfLK0&sz=w1000",
     "https://drive.google.com/thumbnail?id=1-p3LlzdgTw_H5yOW3jsqcyYmSUm5UBFZ&sz=w1000",
     "https://drive.google.com/thumbnail?id=14FT_NIje7uhVEZIjNM6WovOj9VAfWMf3&sz=w1000",
     "https://drive.google.com/thumbnail?id=1Sf6Et1cC6mbDjAFf1Uh8gFDNtXROifFB&sz=w1000",
@@ -419,13 +434,15 @@ function buildStrip(pages, color) {
   var strip = document.getElementById('webtoonStrip');
   strip.innerHTML = '';
   if (!pages || pages.length === 0) {
-    strip.innerHTML = '<div class="panel-placeholder"><div style="font-size:2rem">🚧</div><p style="color:#666">아직 이미지가 연결되지 않았어요!</p></div>';
+    var ph = document.createElement('div');
+    ph.className = 'panel-placeholder';
+    ph.innerHTML = '<div style="font-size:2rem">🚧</div><p style="color:#666">아직 이미지가 연결되지 않았어요!</p>';
+    strip.appendChild(ph);
     return;
   }
   pages.forEach(function(url, i) {
     var img = document.createElement('img');
-    img.src = url;
-    img.alt = (i+1) + '번째 컷';
+    img.src = url; img.alt = (i+1) + '번째 컷';
     img.onerror = function() {
       var ph = document.createElement('div');
       ph.className = 'panel-placeholder';
@@ -520,8 +537,15 @@ var musicPlaying = false;
 function startMusic() {
   var data = WEBTOONS[currentReaderName];
   if (!data || !data.music) return;
-  bgm.src = data.music;
-  bgm.play().then(function() { musicPlaying = true; updateMusicBtn(); }).catch(function() {});
+  if (bgm.src !== data.music) {
+    bgm.src = data.music;
+  }
+  bgm.play().then(function() {
+    musicPlaying = true; updateMusicBtn();
+  }).catch(function(e) {
+    console.log('자동재생 차단:', e);
+    updateMusicBtn();
+  });
 }
 
 function stopMusic() {
